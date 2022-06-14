@@ -1,7 +1,9 @@
+import { GlobalStyle } from "./styles/GlobalStyles";
+
 function App() {
   return (
     <>
-      <h1>Super Mario Jump</h1>
+      <GlobalStyle />
     </>
   );
 }
