@@ -4,4 +4,9 @@ export const MainContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  img {
+    width: 100%;
+    max-width: 250px;
+  }
 `;
