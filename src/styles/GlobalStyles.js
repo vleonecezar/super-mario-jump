@@ -13,4 +13,8 @@ export const GlobalStyle = createGlobalStyle`
     background: url(${background_img}) center fixed no-repeat;
     background-size: cover;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
