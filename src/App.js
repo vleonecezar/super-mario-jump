@@ -2,6 +2,8 @@ import { GlobalStyle } from "./styles/GlobalStyles";
 import Header from "./components/header";
 import Main from "./components/main";
 import Screen from "./components/screen";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routes";
 
 function App() {
   return (
@@ -9,7 +11,11 @@ function App() {
       <GlobalStyle />
       <Header />
       <Main>
-        <Screen></Screen>
+        <Screen>
+          <Router>
+            <Routes />
+          </Router>
+        </Screen>
       </Main>
     </>
   );
