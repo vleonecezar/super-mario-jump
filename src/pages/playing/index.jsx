@@ -67,7 +67,7 @@ const Playing = () => {
         setGameOver(true);
         clearInterval(loop);
       }
-    }, 10000); //10
+    }, 10); //10
   }, []);
 
   useEffect(() => {
@@ -77,19 +77,21 @@ const Playing = () => {
       window.addEventListener(event, (e) => handleJump(e, event));
     });
 
+    return () => {
+      events.forEach((event) => {
+        window.removeEventListener(event, (e) => handleJump(e, event));
+      });
+    };
+  }, []);
+
+  useEffect(() => {
     const loop = setInterval(() => {
       if (!gameOver) {
         setScore((score) => (score += 1));
       }
     }, 2000);
 
-    return () => {
-      events.forEach((event) => {
-        window.removeEventListener(event, (e) => handleJump(e, event));
-      });
-
-      clearInterval(loop);
-    };
+    return () => clearInterval(loop);
   }, [gameOver]);
 
   return (
