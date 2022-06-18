@@ -67,7 +67,9 @@ const Playing = () => {
         setGameOver(true);
         clearInterval(loop);
       }
-    }, 10); //10
+    }, 10000); //10
+
+    return () => clearInterval(loop);
   }, []);
 
   useEffect(() => {

@@ -31,7 +31,7 @@ export const PlayingContainer = styled.div`
     padding: 5px 0 0 5px;
 
     color: black;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: bolder;
   }
 
