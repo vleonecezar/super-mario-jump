@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import background_playing from "../../assets/background-playing.webp";
+import font from "../../assets/font.ttf";
 
 export const PlayingContainer = styled.div`
   background: url(${background_playing}) center no-repeat;
@@ -24,15 +25,46 @@ export const PlayingContainer = styled.div`
     }
   }
 
+  @font-face {
+    font-family: "Main font";
+    src: url(${font});
+  }
+
   span {
+    font-family: "Main font";
     position: relative;
     z-index: 100;
     display: block;
     padding: 5px 0 0 5px;
 
     color: black;
-    font-size: 1.1em;
+    font-size: 0.7em;
     font-weight: bolder;
+    position: relative;
+    z-index: 300;
+  }
+
+  .game-over {
+    display: block;
+    font-size: 2em;
+    color: red;
+    position: absolute;
+    left: 140px;
+    opacity: 0;
+    top: 80px;
+    text-shadow: 2px 2px black;
+
+    animation: gameover_animation 3s forwards;
+    animation-delay: 1.5s;
+
+    @keyframes gameover_animation {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 
   .clouds {
@@ -87,6 +119,21 @@ export const PlayingContainer = styled.div`
 
   .dying {
     max-width: 45px;
+
+    animation: dying_animation 1s forwards !important;
+    animation-delay: 1s !important;
+
+    @keyframes dying_animation {
+      0% {
+        bottom: ${({ last }) => `${last}px`};
+      }
+      50% {
+        bottom: ${({ last }) => `${last + 20}px`};
+      }
+      100% {
+        bottom: -80px;
+      }
+    }
   }
 
   .jump {

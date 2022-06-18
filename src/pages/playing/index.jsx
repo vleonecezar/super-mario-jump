@@ -46,10 +46,11 @@ const Playing = () => {
       }, 1000);
     }
   };
-
+  // GameOver
   useEffect(() => {
     const loop = setInterval(() => {
       const marioPosition = getElementPosition(mario.current);
+      mario.last = marioPosition;
       const bulletPosition = getElementPosition(bullet.current);
       const bushesPosition = getElementPosition(bushes.current);
       const cloudsPosition = getElementPosition(clouds.current);
@@ -63,7 +64,6 @@ const Playing = () => {
         stopAnimation(bushes.current, bushesPosition);
         stopAnimation(bullet.current, bulletPosition);
         stopAnimation(mario.current, marioPosition);
-
         setGameOver(true);
         clearInterval(loop);
       }
@@ -72,6 +72,7 @@ const Playing = () => {
     return () => clearInterval(loop);
   }, []);
 
+  // JUMP
   useEffect(() => {
     const events = ["keydown", "touchstart"];
 
@@ -86,6 +87,7 @@ const Playing = () => {
     };
   }, []);
 
+  // SCORE
   useEffect(() => {
     const loop = setInterval(() => {
       if (!gameOver) {
@@ -97,8 +99,9 @@ const Playing = () => {
   }, [gameOver]);
 
   return (
-    <PlayingContainer>
+    <PlayingContainer last={mario.last}>
       <span>SCORE: {score}</span>
+      {gameOver && <span className="game-over">GAME OVER</span>}
 
       <img ref={bushes} src={bushes_img} className="bushes" alt="bushes" />
 
