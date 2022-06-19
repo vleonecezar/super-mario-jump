@@ -19,26 +19,11 @@ const Playing = () => {
   const bushes = useRef();
   const clouds = useRef();
 
-  const getElementPosition = (element) => {
-    if (element.className.includes("mario")) {
-      return +window.getComputedStyle(element).bottom.replace("px", "");
-    } else {
-      return +window.getComputedStyle(element).left.replace("px", "");
-    }
-  };
-
-  const stopAnimation = (element, position) => {
-    element.style.animation = "none";
-
-    if (element.className.includes("mario")) {
-      element.style.bottom = `${position}px`;
-    } else {
-      element.style.left = `${position}px`;
-    }
-  };
-
-  const handleJump = (event, eventName) => {
-    if (event.code === "Space" || eventName === "touchstart") {
+  const handleJump = (type, event) => {
+    if (
+      (event.code === "Space" && event.type === "keydown") ||
+      event.type === "touchstart"
+    ) {
       setJump(true);
 
       setTimeout(() => {
@@ -46,20 +31,50 @@ const Playing = () => {
       }, 1000);
     }
   };
+
+  const stopAnimation = (element, position) => {
+    if (element !== mario.current) {
+      element.style.top = `${position.top}px`;
+    }
+    element.style.animation = "none";
+    element.style.left = `${position.left}px`;
+    element.style.right = `${position.right}px`;
+    element.style.bottom = `${position.bottom}px`;
+  };
+
+  const getElementPosition = (element) => {
+    const left = +getComputedStyle(element).left.replace("px", "");
+    const right = +getComputedStyle(element).right.replace("px", "");
+    const top = +getComputedStyle(element).top.replace("px", "");
+    const bottom = +getComputedStyle(element).bottom.replace("px", "");
+    const width = +getComputedStyle(element).width.replace("px", "");
+    const height = +getComputedStyle(element).height.replace("px", "");
+    return { left, right, top, bottom, width, height };
+  };
+
   // GameOver
   useEffect(() => {
     const loop = setInterval(() => {
       const marioPosition = getElementPosition(mario.current);
-      mario.last = marioPosition;
+      mario.last = marioPosition.bottom;
+      console.log(mario.last);
       const bulletPosition = getElementPosition(bullet.current);
       const bushesPosition = getElementPosition(bushes.current);
       const cloudsPosition = getElementPosition(clouds.current);
 
-      if (
-        marioPosition <= 130 &&
-        bulletPosition <= 70 &&
-        bulletPosition >= -90
-      ) {
+      const fix = 15; //15
+
+      const colBottom =
+        marioPosition.bottom <
+        bulletPosition.bottom - fix + bulletPosition.height;
+
+      const colFront =
+        marioPosition.right < bulletPosition.right - fix + bulletPosition.width;
+
+      const colBack =
+        marioPosition.left < bulletPosition.left + bulletPosition.width;
+
+      if (colBottom && colFront && colBack) {
         stopAnimation(clouds.current, cloudsPosition);
         stopAnimation(bushes.current, bushesPosition);
         stopAnimation(bullet.current, bulletPosition);
@@ -67,22 +82,22 @@ const Playing = () => {
         setGameOver(true);
         clearInterval(loop);
       }
-    }, 10000); //10
+    }, 10); //10
 
     return () => clearInterval(loop);
   }, []);
 
   // JUMP
   useEffect(() => {
-    const events = ["keydown", "touchstart"];
+    const eventsType = ["keydown", "touchstart"];
 
-    events.forEach((event) => {
-      window.addEventListener(event, (e) => handleJump(e, event));
+    eventsType.forEach((type) => {
+      window.addEventListener(type, (event) => handleJump(type, event));
     });
 
     return () => {
-      events.forEach((event) => {
-        window.removeEventListener(event, (e) => handleJump(e, event));
+      eventsType.forEach((type) => {
+        window.removeEventListener(type, (event) => handleJump(type, event));
       });
     };
   }, []);
@@ -100,7 +115,7 @@ const Playing = () => {
 
   return (
     <PlayingContainer last={mario.last}>
-      <span>SCORE: {score}</span>
+      <span datatype="eu">SCORE: {score}</span>
       {gameOver && <span className="game-over">GAME OVER</span>}
 
       <img ref={bushes} src={bushes_img} className="bushes" alt="bushes" />

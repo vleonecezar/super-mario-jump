@@ -112,7 +112,7 @@ export const PlayingContainer = styled.div`
 
     position: absolute;
     bottom: 0px;
-    left: 50px;
+    left: 50px; //50
 
     z-index: 200;
   }
@@ -154,10 +154,10 @@ export const PlayingContainer = styled.div`
 
   .bullet {
     width: 100%;
-    max-width: 140px;
+    max-width: 140px; // 140
 
     position: absolute;
-    bottom: 10px;
+    bottom: 10px; // 10
 
     z-index: 100;
 
