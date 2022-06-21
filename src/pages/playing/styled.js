@@ -118,17 +118,17 @@ export const PlayingContainer = styled.div`
   }
 
   .dying {
-    max-width: 45px;
+    max-width: 40px;
 
     animation: dying_animation 1s forwards !important;
     animation-delay: 1s !important;
 
     @keyframes dying_animation {
       0% {
-        bottom: ${({ last }) => `${last}px`};
+        bottom: ${({ playerPosition }) => `${playerPosition}px`};
       }
       50% {
-        bottom: ${({ last }) => `${last + 20}px`};
+        bottom: ${({ playerPosition }) => `${playerPosition + 100}px`};
       }
       100% {
         bottom: -80px;
