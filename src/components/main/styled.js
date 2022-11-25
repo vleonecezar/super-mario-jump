@@ -7,6 +7,6 @@ export const MainContainer = styled.main`
 
   img {
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
   }
 `;
