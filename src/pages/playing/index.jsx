@@ -80,7 +80,7 @@ const Playing = () => {
         setGameOver(true);
         clearInterval(loop);
       }
-    }, 10000); //10
+    }, 100000); //10
 
     return () => clearInterval(loop);
   }, []);

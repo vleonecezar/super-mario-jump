@@ -7,12 +7,12 @@ export const PlayingContainer = styled.div`
   background: url(${background_playing}) center no-repeat;
   background-size: cover;
 
-  height: 350px;
+  height: 300px;
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 10px;
-  border: 3px solid red;
-  border-radius: 5px;
+  
+  border: 5px solid blue;
+  border-radius: 8px;
   box-shadow: inset 0px -5px #ca945d;
   
   position: relative;
