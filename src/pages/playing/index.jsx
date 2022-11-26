@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { PlayingContainer } from "./styled";
+import { Screen, PlayingContainer, MarioJump } from "./styled";
 
 import clouds_img from "../../assets/clouds.png";
 import bushes_img from "../../assets/bushes.png";
@@ -8,6 +8,7 @@ import mario_img from "../../assets/mario-walking.gif";
 import mario_jump_img from "../../assets/mario-jump.gif";
 import mario_dying_img from "../../assets/mario-dying.gif";
 import bullet_img from "../../assets/bullet-bill.png";
+import marioJump from "../../assets/mario-border.png";
 
 const Playing = () => {
   const [gameOver, setGameOver] = useState(false);
@@ -29,7 +30,6 @@ const Playing = () => {
       setTimeout(() => {
         setJump(false);
       }, 1000);
-      
     }
   };
 
@@ -112,31 +112,39 @@ const Playing = () => {
   }, [gameOver]);
 
   return (
-    <PlayingContainer playerPosition={player.position}>
-      <span>Score: {score}</span>
-      {gameOver && <span className="game-over">game over</span>}
+    <PlayingContainer>
+      <Screen playerPosition={player.position}>
+        <span>Score: {score}</span>
+        {gameOver && <span className="game-over">game over</span>}
 
-      <img ref={bushes} src={bushes_img} className="bushes" alt="bushes" />
-      <img ref={clouds} src={clouds_img} className="clouds" alt="clouds" />
-      <img className="bullet" ref={enemy} src={bullet_img} alt="bullet bill" />
+        <img ref={bushes} src={bushes_img} className="bushes" alt="bushes" />
+        <img ref={clouds} src={clouds_img} className="clouds" alt="clouds" />
+        <img
+          className="bullet"
+          ref={enemy}
+          src={bullet_img}
+          alt="bullet bill"
+        />
 
-      {!gameOver ? (
-        <img
-          className={!jump ? "mario" : "mario jump"}
-          ref={player}
-          src={!jump ? mario_img : mario_jump_img}
-          alt="mario"
-        />
-      ) : (
-        <img
-          className="mario dying"
-          ref={player}
-          src={mario_dying_img}
-          alt="mario"
-        />
-      )}
+        {!gameOver ? (
+          <img
+            className={!jump ? "mario" : "mario jump"}
+            ref={player}
+            src={!jump ? mario_img : mario_jump_img}
+            alt="mario"
+          />
+        ) : (
+          <img
+            className="mario dying"
+            ref={player}
+            src={mario_dying_img}
+            alt="mario"
+          />
+        )}
+      </Screen>
+      <MarioJump src={marioJump} />
+      <p>TAP SCREEN TO JUMP</p>
     </PlayingContainer>
   );
 };
-
 export default Playing;

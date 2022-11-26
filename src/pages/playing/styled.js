@@ -4,17 +4,24 @@ import background_playing from "../../assets/background-playing.webp";
 import font from "../../assets/font.ttf";
 
 export const PlayingContainer = styled.div`
+  & p {
+    font-size: 1rem;
+    text-align: center;
+  }
+`;
+
+export const Screen = styled.div`
   background: url(${background_playing}) center no-repeat;
   background-size: cover;
 
   height: 300px;
   max-width: 600px;
   margin: 0 auto;
-  
+
   border: 5px solid blue;
   border-radius: 8px;
   box-shadow: inset 0px -5px #ca945d;
-  
+
   position: relative;
 
   overflow: hidden;
@@ -94,7 +101,7 @@ export const PlayingContainer = styled.div`
 
   .bushes {
     width: 100%;
-    max-width: 323.2px;// Desktop:404
+    max-width: 323.2px; // Desktop:404
 
     position: absolute;
     bottom: 2px;
@@ -113,7 +120,7 @@ export const PlayingContainer = styled.div`
 
   .mario {
     width: 100%;
-    max-width: 32px;//Desktop:40
+    max-width: 32px; //Desktop:40
 
     position: absolute;
     bottom: 0px;
@@ -177,4 +184,12 @@ export const PlayingContainer = styled.div`
       }
     }
   }
+`;
+
+export const MarioJump = styled.img`
+  position: relative;
+  display: block;
+  width: 180px;
+  margin: 0 auto;
+  padding-top: 30px;
 `;

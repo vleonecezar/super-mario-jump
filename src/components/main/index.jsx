@@ -1,18 +1,15 @@
-import React from 'react'
-import { MainContainer, Logo, MarioJump } from './styled'
+import React from "react";
+import { MainContainer, Logo } from "./styled";
 
-import logo from "../../assets/logo.png"
-import marioJump from "../../assets/mario-border.png"
+import logo from "../../assets/logo.png";
 
-const Main = ({children}) => {
-return(
+const Main = ({ children }) => {
+  return (
     <MainContainer>
-        <Logo src={logo} alt="logo" />
-        {children}
-        <MarioJump src={marioJump} />
-        <p>TAP SCREEN TO JUMP</p>
+      <Logo src={logo} alt="logo" />
+      {children}
     </MainContainer>
-)
-}
+  );
+};
 
-export default Main
+export default Main;
