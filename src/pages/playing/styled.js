@@ -7,9 +7,14 @@ export const PlayingContainer = styled.div`
   background: url(${background_playing}) center no-repeat;
   background-size: cover;
 
-  height: 100%;
-  border-bottom: 11px solid #ca945d;
-  box-shadow: inset 0px -2px #04ce3b;
+  height: 350px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 3px solid red;
+  border-radius: 5px;
+  box-shadow: inset 0px -5px #ca945d;
+  
   position: relative;
 
   overflow: hidden;
@@ -89,7 +94,7 @@ export const PlayingContainer = styled.div`
 
   .bushes {
     width: 100%;
-    max-width: 404px;
+    max-width: 323.2px;// Desktop:404
 
     position: absolute;
     bottom: 2px;
@@ -108,7 +113,7 @@ export const PlayingContainer = styled.div`
 
   .mario {
     width: 100%;
-    max-width: 40px;
+    max-width: 32px;//Desktop:40
 
     position: absolute;
     bottom: 0px;
@@ -118,7 +123,7 @@ export const PlayingContainer = styled.div`
   }
 
   .dying {
-    max-width: 40px;
+    max-width: 32px;
 
     animation: dying_animation 1s forwards !important;
     animation-delay: 1s !important;
@@ -154,14 +159,14 @@ export const PlayingContainer = styled.div`
 
   .bullet {
     width: 100%;
-    max-width: 140px; // 140
+    max-width: 98px; // Desktop:140
 
     position: absolute;
     bottom: 10px; // 10
 
     z-index: 100;
 
-    animation: bullet_animation 2s infinite linear;
+    animation: bullet_animation 2.3s infinite linear; //desktop: 2s
 
     @keyframes bullet_animation {
       from {
