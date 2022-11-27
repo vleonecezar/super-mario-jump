@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import background_playing from "../../assets/background-playing.webp";
-import font from "../../assets/font.ttf";
 
 export const PlayingContainer = styled.div`
   & p {
@@ -35,11 +34,6 @@ export const Screen = styled.div`
     to {
       opacity: 1;
     }
-  }
-
-  @font-face {
-    font-family: "Main font";
-    src: url(${font});
   }
 
   span {
