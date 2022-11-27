@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  padding-top: 50px;
+  padding-top: 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,6 +18,7 @@ export const HomeContainer = styled.div`
       & a {
         font-size: 1.1rem;
         color: black;
+        font-weight: bold;
         transition: 0.3s;
 
         &:hover {

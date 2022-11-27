@@ -3,23 +3,16 @@ import styled from "styled-components";
 import background_playing from "../../assets/background-playing.webp";
 
 export const PlayingContainer = styled.div`
-  & p {
-    font-size: 1rem;
-    text-align: center;
-  }
-`;
-
-export const Screen = styled.div`
   background: url(${background_playing}) center no-repeat;
   background-size: cover;
 
   height: 300px;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
-
   border: 5px solid blue;
   border-radius: 8px;
-  box-shadow: inset 0px -5px #ca945d;
+  box-shadow: inset 0px -7px #ca945d;
 
   position: relative;
 
@@ -52,10 +45,11 @@ export const Screen = styled.div`
 
   .game-over {
     display: block;
-    font-size: 2em;
+    font-size: 1.8em;
     color: red;
-    position: absolute;
-    left: 140px;
+    //position: absolute;
+    //left: 140px;
+    text-align: center;
     opacity: 0;
     top: 80px;
     text-shadow: 2px 2px black;
@@ -117,7 +111,7 @@ export const Screen = styled.div`
     max-width: 32px; //Desktop:40
 
     position: absolute;
-    bottom: 0px;
+    bottom: 1px;
     left: 50px; //50
 
     z-index: 200;
