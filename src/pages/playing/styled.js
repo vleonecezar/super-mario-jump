@@ -154,7 +154,7 @@ export const PlayingContainer = styled.div`
 
   .bullet {
     width: 100%;
-    max-width: 98px; // Desktop:140
+    max-width: 98px;
 
     position: absolute;
     bottom: 10px; // 10
