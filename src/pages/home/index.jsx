@@ -2,10 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HomeContainer } from "./styled";
 
-import son from "../../assets/overworld.mp3";
-
 const Home = () => {
-  new Audio(son).pause();
   return (
     <HomeContainer>
       <ul>

@@ -18,7 +18,7 @@ export const PlayingContainer = styled.div`
 
   overflow: hidden;
 
-  animation: screen_transition 0.5s;
+  animation: screen_transition 1s; //0.5
 
   @keyframes screen_transition {
     from {
@@ -118,7 +118,7 @@ export const PlayingContainer = styled.div`
   }
 
   .dying {
-    max-width: 32px;
+    max-width: 35px;
 
     animation: dying_animation 1s forwards !important;
     animation-delay: 1s !important;
@@ -137,7 +137,7 @@ export const PlayingContainer = styled.div`
   }
 
   .jump {
-    animation: jump_animation 1s ease-out;
+    animation: jump_animation 0.9s ease-out;
 
     @keyframes jump_animation {
       0% {
@@ -172,12 +172,36 @@ export const PlayingContainer = styled.div`
       }
     }
   }
-`;
 
-export const MarioJump = styled.img`
-  position: relative;
-  display: block;
-  width: 180px;
-  margin: 0 auto;
-  padding-top: 30px;
+  @media (max-width: 480px) {
+    .mario {
+      max-width: 25px;
+    }
+
+    .dying {
+      max-width: 28px;
+    }
+
+    .bullet {
+      max-width: 70px;
+
+      animation: bullet_animation 2.5s infinite linear;
+    }
+
+    .bushes {
+      max-width: 280px;
+    }
+
+    @keyframes jump_animation {
+      0% {
+        bottom: 0;
+      }
+      50% {
+        bottom: 160px;
+      }
+      100% {
+        bottom: 0;
+      }
+    }
+  }
 `;

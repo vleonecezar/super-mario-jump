@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { PlayingContainer } from "./styled";
+import { useNavigate } from "react-router-dom";
 
 import clouds_img from "../../assets/clouds.png";
 import bushes_img from "../../assets/bushes.png";
-import mario_img from "../../assets/mario-walking.gif";
-import mario_jump_img from "../../assets/mario-jump.gif";
-import mario_dying_img from "../../assets/mario-dying.gif";
-import bullet_img from "../../assets/bullet-bill.png";
+import mario_img from "../../assets/mario.gif";
+import mario_jump_img from "../../assets/mario_jump.gif";
+import mario_dead_img from "../../assets/mario_dead.gif";
+import bullet_img from "../../assets/bullet.png";
 
 const Playing = () => {
   const [gameOver, setGameOver] = useState(false);
@@ -84,6 +84,8 @@ const Playing = () => {
           navigate("/");
         }, 4500);
       }
+
+      speed();
     }, 10); //10
 
     return () => clearInterval(loop);
@@ -115,6 +117,14 @@ const Playing = () => {
     return () => clearInterval(loop);
   }, [gameOver]);
 
+  //SPEED
+  const speed = () => {
+    let a = +getComputedStyle(enemy.current).animationDuration.replace("s", "");
+    enemy.current.style.animationDuration = "0s";
+    a -= 0.00005; //0.00004
+    enemy.current.style.animationDuration = `${a}s`;
+  };
+
   return (
     <PlayingContainer playerPosition={player.position}>
       <span>SCORE: {score}</span>
@@ -135,7 +145,7 @@ const Playing = () => {
         <img
           className="mario dying"
           ref={player}
-          src={mario_dying_img}
+          src={mario_dead_img}
           alt="mario"
         />
       )}
