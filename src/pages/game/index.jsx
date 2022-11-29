@@ -1,7 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { GameContainer } from "./styled";
+import {
+  GameContainer,
+  Score,
+  GameOver,
+  Clouds,
+  Bushes,
+  Bullet,
+  Mario,
+} from "./styled";
 
 import clouds_img from "../../assets/clouds.png";
 import bushes_img from "../../assets/bushes.png";
@@ -46,12 +54,13 @@ const Game = () => {
     }
   };
 
-  const stopAnimation = (element, position) => {
+  const freezeAnimation = (element, position) => {
+    element.style.animation = "none";
+
     if (element !== player.current) {
       element.style.top = `${position.top}px`;
     }
 
-    element.style.animation = "none";
     element.style.left = `${position.left}px`;
     element.style.right = `${position.right}px`;
     element.style.bottom = `${position.bottom}px`;
@@ -70,28 +79,25 @@ const Game = () => {
 
   //JUMP
   useEffect(() => {
-    const eventsType = ["keydown", "touchstart"];
+    const eventList = ["keydown", "touchstart"];
 
-    eventsType.forEach((type) => {
-      window.addEventListener(type, (event) => handleJump(event));
+    eventList.forEach((listItem) => {
+      window.addEventListener(listItem, (event) => handleJump(event));
     });
 
     return () => {
-      eventsType.forEach((type) => {
-        window.removeEventListener(type, (event) => handleJump(event));
+      eventList.forEach((listItem) => {
+        window.removeEventListener(listItem, (event) => handleJump(event));
       });
     };
   }, []);
 
   //SPEED BOOST
-  const speedBoost = () => {
-    let time = +getComputedStyle(enemy.current).animationDuration.replace(
-      "s",
-      ""
-    );
-    enemy.current.style.animationDuration = "0s";
-    time -= 0.00005;
-    enemy.current.style.animationDuration = `${time}s`;
+  const enemySpeedBoost = () => {
+    const time = getComputedStyle(enemy.current).animationDuration;
+    let timeFormatted = +time.replace("s", "");
+    timeFormatted -= 0.00004;
+    enemy.current.style.animationDuration = `${timeFormatted}s`;
   };
 
   //MAIN LOOP
@@ -117,10 +123,10 @@ const Game = () => {
 
       //GAME OVER VERIFICATION
       if (collisionBottom && collisionFront && collisionBack) {
-        stopAnimation(player.current, playerValues);
-        stopAnimation(enemy.current, enemyValues);
-        stopAnimation(bushes.current, bushesValues);
-        stopAnimation(clouds.current, cloudsValues);
+        freezeAnimation(player.current, playerValues);
+        freezeAnimation(enemy.current, enemyValues);
+        freezeAnimation(bushes.current, bushesValues);
+        freezeAnimation(clouds.current, cloudsValues);
         setGameOver(true);
         clearInterval(loop);
 
@@ -129,7 +135,7 @@ const Game = () => {
         }, 3500);
       }
 
-      speedBoost();
+      enemySpeedBoost();
     }, 10);
 
     return () => clearInterval(loop);
@@ -137,24 +143,24 @@ const Game = () => {
 
   return (
     <GameContainer>
-      <span>SCORE: {score}</span>
-      {gameOver && <span className="game-over">GAME OVER</span>}
+      <Score>score: {score}</Score>
+      {gameOver && <GameOver>game over</GameOver>}
 
-      <img ref={bushes} src={bushes_img} className="bushes" alt="bushes" />
-      <img ref={clouds} src={clouds_img} className="clouds" alt="clouds" />
-      <img className="bullet" ref={enemy} src={bullet_img} alt="bullet bill" />
+      <Clouds ref={clouds} src={clouds_img} alt="clouds" />
+      <Bushes ref={bushes} src={bushes_img} alt="bushes" />
+      <Bullet ref={enemy} src={bullet_img} alt="bullet bill" />
 
       {!gameOver ? (
-        <img
-          className={!jump ? "mario" : "mario jump"}
+        <Mario
+          jump={jump}
           ref={player}
           src={!jump ? mario_img : mario_jump_img}
           alt="mario"
         />
       ) : (
-        <img
-          className="mario dead"
+        <Mario
           ref={player}
+          className="mario_dead"
           src={mario_dead_img}
           alt="mario dead"
         />

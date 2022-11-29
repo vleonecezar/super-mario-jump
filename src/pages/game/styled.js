@@ -9,15 +9,11 @@ export const GameContainer = styled.div`
   width: 100%;
   max-width: 600px;
   height: 300px;
-
   margin: 0 auto;
-
   border: 5px solid blue;
   border-radius: 8px;
   box-shadow: inset 0px -7px #ca945d;
-
   position: relative;
-
   overflow: hidden;
 
   animation: screenTransition 1s;
@@ -32,159 +28,189 @@ export const GameContainer = styled.div`
   }
 
   span {
-    font-family: "Main font";
     position: relative;
-    z-index: 100;
     display: block;
-    padding: 5px 0 0 5px;
-
-    color: black;
-    font-size: 0.7em;
-    font-weight: bolder;
-    position: relative;
-    z-index: 300;
   }
 
-  .game-over {
-    display: block;
-    font-size: 1.8em;
-    color: red;
-    text-align: center;
-    opacity: 0;
-    top: 80px;
-    text-shadow: 2px 2px black;
-
-    animation: gameOverAnimation 2s forwards;
-    animation-delay: 1s;
-
-    @keyframes gameOverAnimation {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  }
-
-  .clouds {
-    width: 100%;
-    max-width: 340px;
-    filter: opacity(90%);
-
-    position: absolute;
-    top: 10px;
-
-    animation: clouds_animation 25s infinite linear;
-
-    @keyframes clouds_animation {
-      from {
-        left: 600px;
-      }
-      to {
-        left: -400px;
-      }
-    }
-  }
-
-  .bushes {
-    width: 100%;
-    max-width: 323.2px; // Desktop:404
-
-    position: absolute;
-    bottom: 2px;
-
-    animation: bushes_animation 4s infinite linear;
-
-    @keyframes bushes_animation {
-      from {
-        left: 800px;
-      }
-      to {
-        left: -400px;
-      }
-    }
-  }
-
-  .mario {
-    width: 100%;
-    max-width: 32px; //Desktop:40
-
-    position: absolute;
-    bottom: 1px;
-    left: 50px; //50
-
-    z-index: 200;
-  }
-
-  .dead {
+  .mario_dead {
     max-width: 35px;
 
-    animation: dying_animation 1s forwards !important;
+    animation: deadAnimation 1s forwards !important;
     animation-delay: 0.5s !important;
 
-    @keyframes dying_animation {
+    @keyframes deadAnimation {
       50% {
-        bottom: 130px;
+        bottom: 150px;
       }
       100% {
         bottom: -80px;
       }
     }
+
+    @media (max-width: 480px) {
+      max-width: 28px;
+    }
   }
+`;
 
-  .jump {
-    animation: jump_animation 0.9s ease-out;
+export const Score = styled.span`
+  font-size: 0.7em;
+  color: black;
+  font-weight: bolder;
+  text-transform: uppercase;
 
-    @keyframes jump_animation {
-      50% {
-        bottom: 200px;
-      }
-      100% {
-        bottom: 0;
-      }
+  padding: 5px 0 0 5px;
+
+  z-index: 300;
+`;
+
+export const GameOver = styled.span`
+  font-size: 1.8em;
+  color: red;
+  text-shadow: 2px 2px black;
+  text-align: center;
+  text-transform: uppercase;
+
+  z-index: 300;
+
+  opacity: 0;
+
+  top: 80px;
+
+  animation: gameOverAnimation 2s forwards;
+  animation-delay: 1s;
+
+  @keyframes gameOverAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+export const Clouds = styled.img`
+  width: 100%;
+  max-width: 340px;
+  position: absolute;
+  top: 10px;
+
+  filter: opacity(90%);
+
+  animation: cloudsAnimation 60s infinite linear;
+
+  @keyframes cloudsAnimation {
+    from {
+      left: 100vw;
+    }
+    to {
+      left: -100vw;
     }
   }
 
-  .bullet {
-    width: 100%;
-    max-width: 98px;
-
-    position: absolute;
-    bottom: 10px; // 10
-
-    z-index: 100;
-
-    animation: bullet_animation 2.3s infinite linear; //desktop: 2s
-
-    @keyframes bullet_animation {
+  @media (min-width: 480px) {
+    @keyframes cloudsAnimation {
       from {
-        left: 800px;
+        left: 36vw;
       }
       to {
-        left: -400px;
+        left: -25vw;
       }
+    }
+  }
+`;
+
+export const Bushes = styled.img`
+  width: 100%;
+  max-width: 323.2px;
+
+  position: absolute;
+  bottom: 2px;
+
+  animation: bushesAnimation 4.5s infinite linear;
+
+  @keyframes bushesAnimation {
+    from {
+      left: 150vw;
+    }
+    to {
+      left: -100vw;
+    }
+  }
+
+  @media (min-width: 480px) {
+    max-width: 280px;
+
+    animation-duration: 4s;
+
+    @keyframes bushesAnimation {
+      from {
+        left: 50vw;
+      }
+      to {
+        left: -20vw;
+      }
+    }
+  }
+`;
+
+export const Bullet = styled.img`
+  width: 100%;
+  max-width: 70px;
+  position: absolute;
+  bottom: 10px;
+
+  z-index: 100;
+
+  animation: bulletAnimation 2.5s infinite linear;
+
+  @keyframes bulletAnimation {
+    from {
+      left: 200vw;
+    }
+    to {
+      left: -20vw;
+    }
+  }
+
+  @media (min-width: 480px) {
+    max-width: 98px;
+
+    @keyframes bulletAnimation {
+      from {
+        left: 60vw;
+      }
+      to {
+        left: -20vw;
+      }
+    }
+  }
+`;
+
+export const Mario = styled.img`
+  width: 100%;
+  max-width: 32px;
+  position: absolute;
+  bottom: 1px;
+  left: 50px;
+
+  z-index: 200;
+
+  //Only triggers animation if jump state is true
+  animation: ${({ jump }) => (jump ? "jump_animation 0.9s ease-out" : "none")};
+
+  @keyframes jump_animation {
+    50% {
+      bottom: 200px;
+    }
+    100% {
+      bottom: 0;
     }
   }
 
   @media (max-width: 480px) {
-    .mario {
-      max-width: 25px;
-    }
-
-    .dying {
-      max-width: 28px;
-    }
-
-    .bullet {
-      max-width: 70px;
-
-      animation: bullet_animation 2.5s infinite linear;
-    }
-
-    .bushes {
-      max-width: 280px;
-    }
+    max-width: 25px;
 
     @keyframes jump_animation {
       50% {
