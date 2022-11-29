@@ -17,6 +17,7 @@ export const MainContainer = styled.main`
     font-size: 0.6rem;
     text-align: center;
     color: red;
+    text-shadow: 1px 1px black;
 
     > span {
       color: blue;
@@ -80,8 +81,10 @@ export const MainContainer = styled.main`
 
 export const Logo = styled.img`
   display: block;
-  max-width: 350px;
-  margin: 10px auto 20px;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
 
   @media (min-width: 900px) {
     max-width: 500px;

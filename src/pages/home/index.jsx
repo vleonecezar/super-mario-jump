@@ -7,7 +7,7 @@ const Home = () => {
     <HomeContainer>
       <ul>
         <li>
-          <Link to="/playing">START</Link>
+          <Link to="/game">START</Link>
         </li>
         <li>
           <Link to="/" style={{ color: "#666", pointerEvents: "none" }}>
