@@ -136,7 +136,7 @@ const Game = () => {
       }
 
       enemySpeedBoost();
-    }, 10);
+    }, 10000);
 
     return () => clearInterval(loop);
   }, [navigate]);
