@@ -7,15 +7,15 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  & ul {
+  > ul {
     display: inline-block;
     list-style: none;
 
-    & li {
+    > li {
       padding: 15px 0;
       text-align: center;
 
-      & a {
+      > a {
         font-size: 1.1rem;
         color: black;
         font-weight: bold;
@@ -24,6 +24,15 @@ export const HomeContainer = styled.div`
         &:hover {
           color: red;
         }
+      }
+    }
+
+    > li:nth-child(2),
+    > li:nth-child(3) {
+      pointer-events: none;
+
+      > a {
+        color: #666666;
       }
     }
   }

@@ -10,8 +10,6 @@ export const LayoutContainer = styled.main`
   padding: 0 10px;
   padding-top: 10px;
 
-  font-family: "Main font";
-
   background: url(${background}) no-repeat;
   background-size: cover;
 

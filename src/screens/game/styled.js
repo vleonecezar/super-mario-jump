@@ -205,7 +205,7 @@ export const Mario = styled.img`
       bottom: 200px;
     }
     100% {
-      bottom: 0;
+      bottom: 1px;
     }
   }
 

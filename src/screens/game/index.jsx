@@ -42,28 +42,35 @@ const Game = () => {
   };
 
   const handleJump = (event) => {
-    const isKeyboardSpace = event.code === "Space" && event.type === "keydown";
+    const isKeyboardSpace = event.code === "Space";
     const isTouch = event.type === "touchstart";
 
     if (isKeyboardSpace || isTouch) {
       setJump(true);
-
-      setTimeout(() => {
-        setJump(false);
-      }, 1000);
     }
+
+    setTimeout(() => {
+      setJump(false);
+    }, 1000);
   };
 
-  const freezeAnimation = (element, position) => {
+  const enemySpeedBoost = () => {
+    const time = getComputedStyle(enemy.current).animationDuration;
+    let timeFormatted = +time.replace("s", "");
+    timeFormatted -= 0.00004;
+    enemy.current.style.animationDuration = `${timeFormatted}s`;
+  };
+
+  const freezeAnimation = (element, values) => {
     element.style.animation = "none";
 
     if (element !== player.current) {
-      element.style.top = `${position.top}px`;
+      element.style.top = `${values.top}px`;
     }
 
-    element.style.left = `${position.left}px`;
-    element.style.right = `${position.right}px`;
-    element.style.bottom = `${position.bottom}px`;
+    element.style.left = `${values.left}px`;
+    element.style.right = `${values.right}px`;
+    element.style.bottom = `${values.bottom}px`;
   };
 
   //SCORE
@@ -91,14 +98,6 @@ const Game = () => {
       });
     };
   }, []);
-
-  //SPEED BOOST
-  const enemySpeedBoost = () => {
-    const time = getComputedStyle(enemy.current).animationDuration;
-    let timeFormatted = +time.replace("s", "");
-    timeFormatted -= 0.00004;
-    enemy.current.style.animationDuration = `${timeFormatted}s`;
-  };
 
   //MAIN LOOP
   useEffect(() => {
@@ -136,10 +135,11 @@ const Game = () => {
       }
 
       enemySpeedBoost();
-    }, 10000);
+    }, 10);
 
     return () => clearInterval(loop);
-  }, [navigate]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <GameContainer>

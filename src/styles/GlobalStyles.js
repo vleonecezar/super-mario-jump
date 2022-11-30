@@ -1,9 +1,10 @@
 import { createGlobalStyle } from "styled-components";
+
 import font from "../assets/font.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: "Main font";
+    font-family: "Game Font";
     src: url(${font});
   }
 
@@ -11,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  a, p, span {
+    font-family: "Game Font";
   }
 
   a {

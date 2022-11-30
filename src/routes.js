@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./screens/home";
 import Game from "./screens/game";
 
-const MainRoutes = () => {
+const GameRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -13,4 +13,4 @@ const MainRoutes = () => {
   );
 };
 
-export default MainRoutes;
+export default GameRoutes;

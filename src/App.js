@@ -1,8 +1,9 @@
-import { GlobalStyle } from "./styles/GlobalStyles";
-
 import { BrowserRouter as Router } from "react-router-dom";
+
 import Routes from "./routes";
 import Layout from "./layout";
+
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 function App() {
   return (
