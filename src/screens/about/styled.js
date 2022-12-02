@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
   margin: 0 auto;
 
   > div {
-    padding: 10px 0;
+    padding: 20px 0 10px;
     > p {
       font-size: 0.75rem;
       font-style: italic;
@@ -30,6 +30,7 @@ export const AboutContainer = styled.div`
 
       border: 1px solid black;
       border-radius: 10px;
+      width: 150px;
       padding: 5px 10px;
       background: blue;
     }

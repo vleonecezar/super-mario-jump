@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  padding-top: 30px;
+  padding-top: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,17 +13,17 @@ export const HomeContainer = styled.div`
 
     > li {
       padding: 15px 0;
-      text-align: center;
 
       > a {
-        font-size: 1.1rem;
-        color: black;
-        font-weight: bold;
-        transition: 0.3s;
+        display: block;
+        color: yellow;
+        width: 150px;
+        padding: 5px 10px;
+        text-align: center;
 
-        &:hover {
-          color: red;
-        }
+        border: 1px solid black;
+        border-radius: 10px;
+        background: blue;
       }
     }
 
