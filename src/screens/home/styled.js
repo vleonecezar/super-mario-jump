@@ -27,8 +27,7 @@ export const HomeContainer = styled.div`
       }
     }
 
-    > li:nth-child(2),
-    > li:nth-child(3) {
+    > li:nth-child(2) {
       pointer-events: none;
 
       > a {

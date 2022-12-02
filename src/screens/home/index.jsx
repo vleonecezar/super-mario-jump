@@ -14,7 +14,7 @@ const Home = () => {
           <Link to="/">RANKING</Link>
         </li>
         <li>
-          <Link to="/">ABOUT</Link>
+          <Link to="/about">ABOUT</Link>
         </li>
       </ul>
     </HomeContainer>
