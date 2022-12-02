@@ -1,24 +1,29 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  padding-top: 20px;
   width: 100%;
+  max-width: 600px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 
   > ul {
     display: inline-block;
     list-style: none;
+    margin: auto 0;
 
     > li {
-      padding: 15px 0;
+      & + li {
+        padding-top: 30px;
+      }
 
       > a {
         display: block;
         color: yellow;
         width: 150px;
-        padding: 5px 10px;
+        padding: 8px 10px;
         text-align: center;
 
         border: 1px solid black;

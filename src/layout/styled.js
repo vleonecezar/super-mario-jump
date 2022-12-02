@@ -8,7 +8,7 @@ export const LayoutContainer = styled.main`
   width: 100vw;
   height: 100vh;
   padding: 0 10px;
-  padding-top: 10px;
+  align-items: center;
 
   background: url(${background}) no-repeat;
   background-size: cover;
@@ -33,18 +33,19 @@ export const LayoutContainer = styled.main`
     > div {
       display: flex;
       align-items: center;
-      padding-bottom: 50px;
       margin: 0 auto;
+    }
+
+    > p {
+      padding-top: 30px;
     }
   }
 `;
 
 export const Logo = styled.img`
   display: block;
-  max-width: 300px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  max-width: 330px;
+  padding: 20px 0;
 
   @media (min-width: 900px) {
     max-width: 500px;
@@ -54,9 +55,9 @@ export const Logo = styled.img`
 export const Mario = styled.img`
   display: block;
   width: 100%;
-  max-width: 270px;
-  padding: 20px;
+  max-width: 250px;
   margin: 0 auto;
+  padding: 10px 0;
 
   &:first-child {
     display: none;
@@ -64,8 +65,6 @@ export const Mario = styled.img`
 
   @media (min-width: 900px) {
     max-width: 200px;
-    padding: 0 5px;
-    margin: 0;
 
     &:first-child {
       display: block;

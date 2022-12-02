@@ -8,8 +8,8 @@ export const GameContainer = styled.div`
 
   width: 100%;
   max-width: 600px;
-  height: 300px;
   margin: 0 auto;
+  height: 300px;
   border: 5px solid blue;
   border-radius: 8px;
   box-shadow: inset 0px -7px #ca945d;
@@ -58,9 +58,7 @@ export const Score = styled.span`
   color: black;
   font-weight: bolder;
   text-transform: uppercase;
-
   padding: 5px 0 0 5px;
-
   z-index: 300;
 `;
 
