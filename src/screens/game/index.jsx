@@ -25,6 +25,7 @@ const Game = () => {
 
   const navigate = useNavigate();
 
+  const background = useRef();
   const player = useRef();
   const enemy = useRef();
   const bushes = useRef();
@@ -32,6 +33,13 @@ const Game = () => {
 
   //FUNCTIONS
   const getElementValues = (element) => {
+    //returns string
+    if (element === background.current) {
+      const position = getComputedStyle(element).backgroundPosition;
+      return { position };
+    }
+
+    //returns number
     const left = +getComputedStyle(element).left.replace("px", "");
     const right = +getComputedStyle(element).right.replace("px", "");
     const top = +getComputedStyle(element).top.replace("px", "");
@@ -63,6 +71,10 @@ const Game = () => {
 
   const freezeAnimation = (element, values) => {
     element.style.animation = "none";
+
+    if (element === background.current) {
+      element.style.backgroundPosition = values.position;
+    }
 
     if (element !== player.current) {
       element.style.top = `${values.top}px`;
@@ -102,6 +114,7 @@ const Game = () => {
   //MAIN LOOP
   useEffect(() => {
     const loop = setInterval(() => {
+      const backgroundValues = getElementValues(background.current);
       const playerValues = getElementValues(player.current);
       const enemyValues = getElementValues(enemy.current);
       const bushesValues = getElementValues(bushes.current);
@@ -122,6 +135,7 @@ const Game = () => {
 
       //GAME OVER VERIFICATION
       if (collisionBottom && collisionFront && collisionBack) {
+        freezeAnimation(background.current, backgroundValues);
         freezeAnimation(player.current, playerValues);
         freezeAnimation(enemy.current, enemyValues);
         freezeAnimation(bushes.current, bushesValues);
@@ -142,7 +156,7 @@ const Game = () => {
   }, []);
 
   return (
-    <GameContainer>
+    <GameContainer ref={background}>
       <Score>score: {score}</Score>
       {gameOver && <GameOver>game over</GameOver>}
 

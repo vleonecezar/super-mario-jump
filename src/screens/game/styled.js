@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import background_game from "../../assets/background_game.webp";
+import background_game from "../../assets/background_game.png";
 
 export const GameContainer = styled.div`
-  background: url(${background_game}) center no-repeat;
-  background-size: cover;
+  background: url(${background_game}) repeat-x;
+  background-size: contain;
 
   width: 100%;
   max-width: 600px;
@@ -15,8 +15,19 @@ export const GameContainer = styled.div`
   box-shadow: inset 0px -7px #ca945d;
   position: relative;
   overflow: hidden;
+  background-position: -343px 0px;
 
   animation: screenTransition 1s;
+  animation: backgroundAnimation 3s infinite linear;
+
+  @keyframes backgroundAnimation {
+    from {
+      background-position: 0px 0px;
+    }
+    to {
+      background-position: -343px 0px;
+    }
+  }
 
   @keyframes screenTransition {
     from {
@@ -96,7 +107,7 @@ export const Clouds = styled.img`
 
   filter: opacity(90%);
 
-  animation: cloudsAnimation 60s infinite linear;
+  animation: cloudsAnimation 60s infinite linear; //60
 
   @keyframes cloudsAnimation {
     from {
