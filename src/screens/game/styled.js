@@ -14,7 +14,6 @@ export const GameContainer = styled.div`
   height: 300px;
   border: 5px solid blue;
   border-radius: 8px;
-  box-shadow: inset 0px -7px #ca945d;
   position: relative;
   overflow: hidden;
   //background-position: -343px -30px;
