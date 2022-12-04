@@ -8,8 +8,8 @@ const About = () => {
       <div>
         <p>
           My name is Vitor Leone Cezar. I developed this browser game inspired
-          by Super Mario which was a game that I've been played when I was a kid
-          and it gave me lots of happy moments.
+          by Super Mario World which was a game that I've been played when I was
+          a kid and it gave me a lot of happy moments.
         </p>
         <p>
           With focus and study I made my own Mario game and one of my childhood

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import background_game from "../../assets/background_game.png";
+import ground_img from "../../assets/ground.png";
 
 export const GameContainer = styled.div`
   background: url(${background_game}) repeat-x;
@@ -8,6 +9,7 @@ export const GameContainer = styled.div`
 
   width: 100%;
   max-width: 600px;
+  min-width: 371px;
   margin: 0 auto;
   height: 300px;
   border: 5px solid blue;
@@ -15,17 +17,17 @@ export const GameContainer = styled.div`
   box-shadow: inset 0px -7px #ca945d;
   position: relative;
   overflow: hidden;
-  background-position: -343px 0px;
+  //background-position: -343px -30px;
 
   animation: screenTransition 1s;
-  animation: backgroundAnimation 3s infinite linear;
+  animation: backgroundAnimation 4s infinite linear;
 
   @keyframes backgroundAnimation {
     from {
-      background-position: 0px 0px;
+      background-position: 0px -17px;
     }
     to {
-      background-position: -343px 0px;
+      background-position: -343px -17px;
     }
   }
 
@@ -60,6 +62,28 @@ export const GameContainer = styled.div`
 
     @media (max-width: 480px) {
       max-width: 28px;
+    }
+  }
+`;
+
+export const Ground = styled.div`
+  background: url(${ground_img}) repeat-x;
+  background-size: cover;
+  width: 100%;
+  max-width: 600px;
+  height: 100px;
+  position: absolute;
+  bottom: 0px;
+  background-position: -1203px bottom;
+
+  animation: groundAnimation 4s infinite linear;
+
+  @keyframes groundAnimation {
+    from {
+      background-position: 0 bottom;
+    }
+    to {
+      background-position: -1203px bottom;
     }
   }
 `;
@@ -99,76 +123,11 @@ export const GameOver = styled.span`
   }
 `;
 
-export const Clouds = styled.img`
-  width: 100%;
-  max-width: 340px;
-  position: absolute;
-  top: 10px;
-
-  filter: opacity(90%);
-
-  animation: cloudsAnimation 60s infinite linear; //60
-
-  @keyframes cloudsAnimation {
-    from {
-      left: 100vw;
-    }
-    to {
-      left: -100vw;
-    }
-  }
-
-  @media (min-width: 480px) {
-    @keyframes cloudsAnimation {
-      from {
-        left: 36vw;
-      }
-      to {
-        left: -25vw;
-      }
-    }
-  }
-`;
-
-export const Bushes = styled.img`
-  width: 100%;
-  max-width: 323.2px;
-
-  position: absolute;
-  bottom: 2px;
-
-  animation: bushesAnimation 4.5s infinite linear;
-
-  @keyframes bushesAnimation {
-    from {
-      left: 150vw;
-    }
-    to {
-      left: -100vw;
-    }
-  }
-
-  @media (min-width: 480px) {
-    max-width: 280px;
-
-    animation-duration: 4s;
-
-    @keyframes bushesAnimation {
-      from {
-        left: 50vw;
-      }
-      to {
-        left: -20vw;
-      }
-    }
-  }
-`;
-
 export const Bullet = styled.img`
   width: 100%;
   max-width: 70px;
   position: absolute;
-  bottom: 10px;
+  bottom: 25px;
 
   z-index: 100;
 
@@ -201,7 +160,7 @@ export const Mario = styled.img`
   width: 100%;
   max-width: 32px;
   position: absolute;
-  bottom: 1px;
+  bottom: 17px;
   left: 50px;
 
   z-index: 200;
@@ -214,7 +173,7 @@ export const Mario = styled.img`
       bottom: 200px;
     }
     100% {
-      bottom: 1px;
+      bottom: 17px;
     }
   }
 
@@ -226,7 +185,7 @@ export const Mario = styled.img`
         bottom: 160px;
       }
       100% {
-        bottom: 0;
+        bottom: 17px;
       }
     }
   }

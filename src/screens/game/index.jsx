@@ -3,16 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 import {
   GameContainer,
+  Ground,
   Score,
   GameOver,
-  Clouds,
-  Bushes,
-  Bullet,
   Mario,
+  Bullet,
 } from "./styled";
 
-import clouds_img from "../../assets/clouds.png";
-import bushes_img from "../../assets/bushes.png";
 import mario_img from "../../assets/mario.gif";
 import mario_jump_img from "../../assets/mario_jump.gif";
 import mario_dead_img from "../../assets/mario_dead.gif";
@@ -26,15 +23,17 @@ const Game = () => {
   const navigate = useNavigate();
 
   const background = useRef();
+  const ground = useRef();
   const player = useRef();
   const enemy = useRef();
-  const bushes = useRef();
-  const clouds = useRef();
 
   //FUNCTIONS
   const getElementValues = (element) => {
     //returns string
-    if (element === background.current) {
+    const isBackground = element === background.current;
+    const isGround = element === ground.current;
+
+    if (isBackground || isGround) {
       const position = getComputedStyle(element).backgroundPosition;
       return { position };
     }
@@ -72,7 +71,10 @@ const Game = () => {
   const freezeAnimation = (element, values) => {
     element.style.animation = "none";
 
-    if (element === background.current) {
+    const isBackground = element === background.current;
+    const isGround = element === ground.current;
+
+    if (isBackground || isGround) {
       element.style.backgroundPosition = values.position;
     }
 
@@ -115,10 +117,9 @@ const Game = () => {
   useEffect(() => {
     const loop = setInterval(() => {
       const backgroundValues = getElementValues(background.current);
+      const groundValues = getElementValues(ground.current);
       const playerValues = getElementValues(player.current);
       const enemyValues = getElementValues(enemy.current);
-      const bushesValues = getElementValues(bushes.current);
-      const cloudsValues = getElementValues(clouds.current);
 
       const fixCollisionBorder = 15; //Because images have a square border
 
@@ -136,10 +137,9 @@ const Game = () => {
       //GAME OVER VERIFICATION
       if (collisionBottom && collisionFront && collisionBack) {
         freezeAnimation(background.current, backgroundValues);
+        freezeAnimation(ground.current, groundValues);
         freezeAnimation(player.current, playerValues);
         freezeAnimation(enemy.current, enemyValues);
-        freezeAnimation(bushes.current, bushesValues);
-        freezeAnimation(clouds.current, cloudsValues);
         setGameOver(true);
         clearInterval(loop);
 
@@ -157,11 +157,10 @@ const Game = () => {
 
   return (
     <GameContainer ref={background}>
+      <Ground ref={ground} />
       <Score>score: {score}</Score>
       {gameOver && <GameOver>game over</GameOver>}
 
-      <Clouds ref={clouds} src={clouds_img} alt="clouds" />
-      <Bushes ref={bushes} src={bushes_img} alt="bushes" />
       <Bullet ref={enemy} src={bullet_img} alt="bullet bill" />
 
       {!gameOver ? (
