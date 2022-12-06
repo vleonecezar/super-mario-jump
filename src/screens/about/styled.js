@@ -6,12 +6,16 @@ export const AboutContainer = styled.div`
   height: 300px;
   margin: 0 auto;
 
+  animation: screenTransition 0.5s;
+
   > div {
     padding-top: 10px;
     > p {
-      font-size: 0.75rem;
+      font-size: 0.735rem;
       font-style: italic;
       text-align: justify;
+      color: #000;
+      font-weight: bolder;
       padding: 0 20px;
 
       :last-child {
@@ -24,16 +28,5 @@ export const AboutContainer = styled.div`
     display: flex;
     justify-content: center;
     margin: 20px 0;
-
-    > a {
-      text-align: center;
-      color: yellow;
-
-      border: 1px solid black;
-      border-radius: 10px;
-      width: 150px;
-      padding: 8px 10px;
-      background: blue;
-    }
   }
 `;

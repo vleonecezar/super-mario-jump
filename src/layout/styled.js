@@ -13,6 +13,8 @@ export const LayoutContainer = styled.main`
   background: url(${background}) no-repeat;
   background-size: cover;
 
+  animation: screenTransition 0.5s;
+
   > div {
     width: 100%;
     max-width: 1200px;
@@ -20,13 +22,9 @@ export const LayoutContainer = styled.main`
 
   > p {
     text-align: center;
-    text-shadow: 1px 1px black;
     font-size: 0.6rem;
-    color: red;
-
-    > span {
-      color: blue;
-    }
+    color: #000;
+    font-weight: bolder;
   }
 
   @media (min-width: 900px) {
@@ -68,6 +66,7 @@ export const Mario = styled.img`
 
     &:first-child {
       display: block;
+      transform: rotateY(190deg);
     }
   }
 

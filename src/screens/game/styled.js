@@ -12,55 +12,19 @@ export const GameContainer = styled.div`
   min-width: 371px;
   margin: 0 auto;
   height: 300px;
-  border: 5px solid blue;
+  border: 5px solid #009cda;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  //background-position: -343px -30px;
 
-  animation: screenTransition 1s;
-  animation: backgroundAnimation 4s infinite linear;
+  animation: screenTransition 0.5s, backgroundGameAnimation 4s infinite linear;
 
-  @keyframes backgroundAnimation {
+  @keyframes backgroundGameAnimation {
     from {
       background-position: 0px -17px;
     }
     to {
       background-position: -343px -17px;
-    }
-  }
-
-  @keyframes screenTransition {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  span {
-    position: relative;
-    display: block;
-  }
-
-  .mario_dead {
-    max-width: 35px;
-
-    animation: deadAnimation 1s forwards !important;
-    animation-delay: 0.5s !important;
-
-    @keyframes deadAnimation {
-      50% {
-        bottom: 150px;
-      }
-      100% {
-        bottom: -80px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      max-width: 28px;
     }
   }
 `;
@@ -88,26 +52,28 @@ export const Ground = styled.div`
 `;
 
 export const Score = styled.span`
-  font-size: 0.7em;
-  color: black;
+  font-size: 0.65em;
+  color: #000;
   font-weight: bolder;
-  text-transform: uppercase;
+
+  display: block;
   padding: 5px 0 0 5px;
+  position: relative;
   z-index: 300;
 `;
 
 export const GameOver = styled.span`
   font-size: 1.8em;
-  color: red;
+  color: #e62310;
   text-shadow: 2px 2px black;
   text-align: center;
-  text-transform: uppercase;
 
+  display: block;
+  position: relative;
+  top: 80px;
   z-index: 300;
 
   opacity: 0;
-
-  top: 80px;
 
   animation: gameOverAnimation 2s forwards;
   animation-delay: 1s;
@@ -127,7 +93,6 @@ export const Bullet = styled.img`
   max-width: 70px;
   position: absolute;
   bottom: 25px;
-
   z-index: 100;
 
   animation: bulletAnimation 2.5s infinite linear;
@@ -159,8 +124,8 @@ export const Mario = styled.img`
   width: 100%;
   max-width: 32px;
   position: absolute;
-  bottom: 17px;
   left: 50px;
+  bottom: 17px;
 
   z-index: 200;
 
@@ -186,6 +151,26 @@ export const Mario = styled.img`
       100% {
         bottom: 17px;
       }
+    }
+  }
+
+  &.mario_dead {
+    max-width: 35px;
+
+    animation: deadAnimation 1s forwards !important;
+    animation-delay: 0.5s !important;
+
+    @keyframes deadAnimation {
+      50% {
+        bottom: 150px;
+      }
+      100% {
+        bottom: -80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      max-width: 28px;
     }
   }
 `;

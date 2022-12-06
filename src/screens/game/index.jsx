@@ -6,14 +6,14 @@ import {
   Ground,
   Score,
   GameOver,
-  Mario,
   Bullet,
+  Mario,
 } from "./styled";
 
+import bullet_img from "../../assets/bullet.png";
 import mario_img from "../../assets/mario.gif";
 import mario_jump_img from "../../assets/mario_jump.gif";
 import mario_dead_img from "../../assets/mario_dead.gif";
-import bullet_img from "../../assets/bullet.png";
 
 const Game = () => {
   const [score, setScore] = useState(0);
@@ -29,10 +29,10 @@ const Game = () => {
 
   //FUNCTIONS
   const getElementValues = (element) => {
-    //returns string
     const isBackground = element === background.current;
     const isGround = element === ground.current;
 
+    //returns string
     if (isBackground || isGround) {
       const position = getComputedStyle(element).backgroundPosition;
       return { position };
@@ -64,7 +64,7 @@ const Game = () => {
   const enemySpeedBoost = () => {
     const time = getComputedStyle(enemy.current).animationDuration;
     let timeFormatted = +time.replace("s", "");
-    timeFormatted -= 0.00004;
+    timeFormatted -= 0.00006;
     enemy.current.style.animationDuration = `${timeFormatted}s`;
   };
 
@@ -73,12 +73,11 @@ const Game = () => {
 
     const isBackground = element === background.current;
     const isGround = element === ground.current;
+    const notPlayer = element !== player.current;
 
     if (isBackground || isGround) {
       element.style.backgroundPosition = values.position;
-    }
-
-    if (element !== player.current) {
+    } else if (notPlayer) {
       element.style.top = `${values.top}px`;
     }
 
@@ -149,7 +148,7 @@ const Game = () => {
       }
 
       enemySpeedBoost();
-    }, 10000);
+    }, 10);
 
     return () => clearInterval(loop);
     // eslint-disable-next-line
@@ -158,9 +157,8 @@ const Game = () => {
   return (
     <GameContainer ref={background}>
       <Ground ref={ground} />
-      <Score>score: {score}</Score>
-      {gameOver && <GameOver>game over</GameOver>}
-
+      <Score>SCORE: {score}</Score>
+      {gameOver && <GameOver>GAME OVER</GameOver>}
       <Bullet ref={enemy} src={bullet_img} alt="bullet bill" />
 
       {!gameOver ? (

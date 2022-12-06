@@ -9,6 +9,8 @@ export const HomeContainer = styled.div`
   align-items: center;
   margin: 0 auto;
 
+  animation: screenTransition 0.5s;
+
   > ul {
     display: inline-block;
     list-style: none;
@@ -18,25 +20,13 @@ export const HomeContainer = styled.div`
       & + li {
         padding-top: 30px;
       }
-
-      > a {
-        display: block;
-        color: yellow;
-        width: 150px;
-        padding: 8px 10px;
-        text-align: center;
-
-        border: 1px solid black;
-        border-radius: 10px;
-        background: blue;
-      }
     }
 
     > li:nth-child(2) {
       pointer-events: none;
 
       > a {
-        color: #666666;
+        color: #666;
       }
     }
   }
