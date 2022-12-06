@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/super-mario-jump/static/js/main.94c50b2b.js",
+    "main.js": "/super-mario-jump/static/js/main.e858764b.js",
     "static/media/background.png": "/super-mario-jump/static/media/background.eead57fda5d5832102db.png",
     "static/media/background_game.png": "/super-mario-jump/static/media/background_game.2f9601a0f1feb09712e3.png",
     "static/media/mario_background.png": "/super-mario-jump/static/media/mario_background.cb7521385031bc986d4a.png",
@@ -9,9 +9,9 @@
     "static/media/font.ttf": "/super-mario-jump/static/media/font.fe89253e565b6ab62135.ttf",
     "static/media/bullet.png": "/super-mario-jump/static/media/bullet.3443372fbabf0d68407a.png",
     "index.html": "/super-mario-jump/index.html",
-    "main.94c50b2b.js.map": "/super-mario-jump/static/js/main.94c50b2b.js.map"
+    "main.e858764b.js.map": "/super-mario-jump/static/js/main.e858764b.js.map"
   },
   "entrypoints": [
-    "static/js/main.94c50b2b.js"
+    "static/js/main.e858764b.js"
   ]
 }
