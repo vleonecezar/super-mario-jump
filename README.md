@@ -2,56 +2,56 @@
   
 ![logo](https://user-images.githubusercontent.com/76831929/206061495-99d424ce-0d8f-4476-8c01-75a4d2c661b5.png)
 
-Super Mario Jump é um browser game inspirado em Super Mario World. O objetivo do game é alcançar o máximo score possível enquanto se esquiva pulando o inimigo, que a propósito, tem um constante aumento de velocidade, tornando a vida do player mais difícil com o passar do tempo. 
+Super Mario Jump is a browser game inspired by Super Mario World. The objective of the game is to reach the maximum score possible while dodging by jumping the enemy who has a constant increase in speed, making the player's life more difficult as time goes by. 
 
 
-[Funcionalidades](#funcionalidades) • [Tecnologias](#tecnologias) • [Como Usar](#como-usar)
+[Features](#features) • [Technologies](#technologies) • [How to use](#how-to-use)
 
 ![mobile](https://user-images.githubusercontent.com/76831929/206064128-1ff1a55d-4d08-4cdf-aaa5-0c8146c3d9e7.png)
 
 ![image](https://user-images.githubusercontent.com/76831929/206037294-7ce463f5-5a37-441a-87c7-d986ed22a859.png)
 
-### [Teste a Aplicação](https://vleonecezar.github.io/super-mario-jump/)
+### [Preview](https://vleonecezar.github.io/super-mario-jump/)
 
 </div>
 
-## Funcionalidades
+## Features
 
-- Menu na página home.
-- Toque na tela ou espaço no teclado para pular.
-- Número de score sobe 1 score a cada 2 seg jogado.
-- Inimigo está em constante aumento de velocidade.
-- Game over na colisão do player com inimigo.
+- Homepage menu.
+- Tap screen/press space on the keyboard to jump.
+- The score number goes up 1 score every 2 sec played.
+- Enemy's speed constantly increases.
+- Game over on player collision.
 
-## Tecnologias
+## Technologies
 
-- [ReactJS](https://reactjs.org/)
+- [React](https://reactjs.org/)
 
-## Como usar
+## How to use
 
-> Para clonar e rodar essa aplicação, você vai precisar do Git e Node.js instalados em seu computador.
+> To clone and run this application, you'll need Git and Node.js installed on your computer.
 
-#### No seu terminal:
+#### From your command line:
 
-#### Clone o repositório
-
-```
-  git clone https://github.com/vleonecezar/super-mario-jump.git
-```
-
-#### Abra o repositório
+#### Clone this repository
 
 ```
-  cd super-mario-jump
+  $ git clone https://github.com/vleonecezar/super-mario-jump.git
 ```
 
-#### Instale as dependências
+#### Go into the repository
 
 ```
-  npm install
+  $ cd super-mario-jump
 ```
 
-#### Rode o app
+#### Install dependencies
+
+```
+  $ npm install
+```
+
+#### Run the app
 
 ```
   npm start
