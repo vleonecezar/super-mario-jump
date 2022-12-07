@@ -7,8 +7,13 @@
 
 [Funcionalidades](#funcionalidades) • [Tecnologias](#tecnologias) • [Como Usar](#como-usar)
 
-![image](https://user-images.githubusercontent.com/76831929/206054366-d75c6ef0-8566-49fd-8c39-a156f63c0c8f.png)
-![image](https://user-images.githubusercontent.com/76831929/206055178-8b03ed34-0741-4205-8313-db083d20bdf7.png)
+<div>
+
+  ![image](https://user-images.githubusercontent.com/76831929/206054366-d75c6ef0-8566-49fd-8c39-a156f63c0c8f.png)
+  ![image](https://user-images.githubusercontent.com/76831929/206055178-8b03ed34-0741-4205-8313-db083d20bdf7.png)
+  
+</div>
+
 ![image](https://user-images.githubusercontent.com/76831929/206037294-7ce463f5-5a37-441a-87c7-d986ed22a859.png)
 
 ### [Teste a Aplicação](https://vleonecezar.github.io/super-mario-jump/)
