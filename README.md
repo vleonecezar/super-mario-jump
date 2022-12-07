@@ -7,12 +7,8 @@
 
 [Funcionalidades](#funcionalidades) • [Tecnologias](#tecnologias) • [Como Usar](#como-usar)
 
-<div>
-
-  ![image](https://user-images.githubusercontent.com/76831929/206054366-d75c6ef0-8566-49fd-8c39-a156f63c0c8f.png)
-  ![image](https://user-images.githubusercontent.com/76831929/206055178-8b03ed34-0741-4205-8313-db083d20bdf7.png)
-  
-</div>
+![1](https://user-images.githubusercontent.com/76831929/206063254-ed65d6c5-faa8-444c-bb67-a679672492d8.png)
+![2](https://user-images.githubusercontent.com/76831929/206063277-04210fc7-7069-4638-ab25-255b719666ee.png)
 
 ![image](https://user-images.githubusercontent.com/76831929/206037294-7ce463f5-5a37-441a-87c7-d986ed22a859.png)
 
