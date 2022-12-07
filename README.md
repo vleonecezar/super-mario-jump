@@ -2,7 +2,7 @@
   
 ![logo](https://user-images.githubusercontent.com/76831929/206061495-99d424ce-0d8f-4476-8c01-75a4d2c661b5.png)
 
-#### Super Mario Jump é um browser game inspirado em Super Mario World. O objetivo do game é alcançar o máximo score possível enquanto se esquiva pulando o inimigo, que a propósito, tem um constante aumento de velocidade, tornando a vida do player mais difícil com o passar do tempo. 
+Super Mario Jump é um browser game inspirado em Super Mario World. O objetivo do game é alcançar o máximo score possível enquanto se esquiva pulando o inimigo, que a propósito, tem um constante aumento de velocidade, tornando a vida do player mais difícil com o passar do tempo. 
 
 
 [Funcionalidades](#funcionalidades) • [Tecnologias](#tecnologias) • [Como Usar](#como-usar)
